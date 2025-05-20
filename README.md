@@ -23,14 +23,14 @@ In this paper, we propose decoupled geometric parameterization upon SKS for DHE,
 
 ## 🔬 Formula Breakdown
 
-The original SKS method decomposes a 2D homography into three sub-transformations: 
+### Original SKS Decomposition
+SKS decomposes a 2D homography into three sub-transformations: 
 ```math
 \mathbf{H}=\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_1},
 ```
-where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}\_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. In SKS, $\mathbf{H}\_{K}$ is associated with the hyperbolic similarity transformation $\mathbf{H}^{'}_{S}$.
+where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}\_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes.
 
-
-### Improved SKS Decomposition for Homography Parameterization
+### Geometric Parameterization upon SKS
 
 The complete homography $H$ from the source image to the target image is represented by:
 
