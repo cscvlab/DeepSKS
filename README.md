@@ -10,13 +10,12 @@ __Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Zhijun Fan
 
 ## 💡 Motivation
 
-The Similarity-Kernel-Similarity ([SKS](http://www.cscvlab.com/research/SKS-Homography/)) decomposition is an efficient and interpretable homography computation method, which we proposed about seven years ago. In deep learing era, although the SKS decomposition can be used as a post-processing solver to calculate homography utilizing four-point positional offsets (which neural networks predict), we expect to explore a long-standing problem: how to represent homography by eight geometric parameters suitable for NN prediction?. Geometric parameterization of SKS
+The Similarity-Kernel-Similarity ([SKS](http://www.cscvlab.com/research/SKS-Homography/)) decomposition is an efficient and interpretable homography computation method, which we proposed about seven years ago. In deep learing era, although the SKS decomposition can be used as a post-processing solver to calculate homography utilizing four-point positional offsets (which neural networks predict), we expect to explore a long-standing problem: how to represent homography by eight geometric parameters suitable for NN prediction? Geometric parameterization of SKS. 
 
-<!-- ![alt text](figs/hierarchicalTrans.png){:style="width:500px;"} -->
-<center>
-<img src="figs/hierarchicalTrans.png" alt="Description" width="600">
-</center>
-
+<p align="center">
+  <img src="figs/hierarchicalTrans.png" width = "500"  alt="hierarchicalTrans" align=center />
+</p>
+ 
 and transferring it into deep homography estimation (DHE) task is not straightforward and need to solve three problems: (1) Which eight geometric parameters are suitable for neural network prediction? (2) How to optimally estimate parameters in a straitified sub-transformations? (3) How to endow parameters with a direct interpretation in terms of image feature?   
 
 In this paper, we propose decoupled geometric parameterization upon SKS for DHE, which significantly promote SKS in three key folds:
@@ -26,9 +25,9 @@ In this paper, we propose decoupled geometric parameterization upon SKS for DHE,
 2. **Parameter Decoupling:** Although SKS’s stratified decomposition initially implied that the kernel transformation $\mathbf{H}_K$ seemed dependent on a similarty transformation $\mathbf{H}_S$, after extensive analysis, we prove that two sets of four parameters can be decoupled and predicted in parallel.
 
 3. **Angular Offsets Feature:** We introduce angular offsets (A.O.) as a novel visual feature and empirically validate their robustness as part of our representation.
-
-![alt text](figs/comparison.png)
-
+<p align="center">
+ <img src="figs/comparison.png" width = "600" alt="comparison" align=center />
+</p>
 ## 🔬 Formula Breakdown
 
 ### Original SKS Decomposition
