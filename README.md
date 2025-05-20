@@ -28,13 +28,13 @@ SKS decomposes a 2D homography into three sub-transformations:
 ```math
 \mathbf{H}=\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_1},
 ```
-where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}\_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. In the SKS work, $\mathbf{H}\_{K}$ is associated with the hyperbolic similarity transformation $\mathbf{H}^{'}_{S}$.
+where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}\_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. In the SKS work, $\mathbf{H}\_{K}$ is associated with the hyperbolic similarity transformation $\mathbf{H}_{S}$.
 
 ### Geometric Parameterization upon SKS
 
 In this paper, the homography $H$ from the source image to the target image is represented by:
 
-$$H = H_{S_{1}}H_{S_{2}}^{-1}H_{K}H_{S_{2}} = H_{T}^{-1}H_{S}H_{T}H_{S_{2}}^{-1}H_{K}H_{S_{2}}$$
+$$H = H_{S_{1}}H_{S_{2}}^{-1}H_{K}H_{S_{2}} = H_{T}^{-1}H_{S}H_{T}H_{S_{2}}^{-1}H_{K}H_{S_{2}},$$
 where the similarity transformation $H_{S_{2}}$ and the translation $H_{T}$ are known .......; The unknown similarity transformation $H_{S}$ is expressed by 
 $$
 H_{S} =\begin{bmatrix} 
@@ -50,7 +50,7 @@ $$H_{K} = \begin{bmatrix}
 \Delta a_{K}+1 & u_{K} & b_{K} \\ 
 0 & 1 & 0 \\ 
 b_{K} & v_{K} & \Delta a_{K}+1\\ 
-\end{bmatrix}$$
+\end{bmatrix}.$$
 
 This introduces an 8-DOF geometric parameterization for homography, which is decoupled into two independent sets: 4-DOF in $H_{S}$ and 4-DOF in $H_{K}$.
 
