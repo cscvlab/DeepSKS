@@ -4,13 +4,24 @@ This repository is the official implementation of the paper:
 
 **Decoupled Geometric Parameterization and its Application in Deep Homography Estimation**.
 
-__Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Zhijun Fang, Jiachun Wang, Shen Cai*, Junchi Yan, Shuhan Shen*.
+__Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Zhijun Fang, Jiachun Wang, Shen Cai, Junchi Yan, Shuhan Shen.
 
 <!-- **Links:**  [[Paper]](https://arxiv.org/pdf/2402.18008) -->
 
-## 📝 Article Introduction
+## 📝 Motivation
 
-Planar homography, with eight degrees of freedom (DOFs), is fundamental in numerous computer vision tasks. While the positional offsets of four corners are widely adopted (especially in neural network predictions), this parameterization lacks geometric interpretability and typically requires solving a linear system to compute the homography matrix. This paper presents a novel geometric parameterization of homographies, leveraging the similarity-kernel-similarity (SKS) decomposition for projective transformations. Two independent sets of four geometric parameters are decoupled: one for a similarity transformation and the other for the kernel transformation. Additionally, the geometric interpretation linearly relating the four kernel transformation parameters to angular offsets is derived. Our proposed parameterization allows for direct homography estimation through matrix multiplication, eliminating the need for solving a linear system, and achieves performance comparable to the four-corner positional offsets in deep homography estimation.
+The similarity-kernel-similarity ([SKS](http://www.cscvlab.com/research/SKS-Homography/)) decomposition is an efficient and interpretable homography computation method, we proposed about seven years ago. In deep learing era, transferring SKS into deep homography estimation (DHE) task is not straightforward and need to solve three questions: (1) Which eight geometric parameters are selected for neural network prediction? (2) How to optimally estimate parameters in a straitified sub-transformations? (3) How to endow parameters with a direct interpretation in terms of image feature? 
+
+In this paper, we propose decoupled geometric parameterization upon SKS for DHE, which significantly promote SKS in three key folds:
+
+1. **Geometric Parameterization Design:** While SKS has various decomposition forms involving over eight parameters, we identify a well-suited subset of eight parameters for DHE and fix the rest.
+
+2. **Parameter Decoupling:** Although SKS’s stratified decomposition initially implied that the kernel transformation $\mathbf{H}_K$ seemed dependent on a similarty transformation $\mathbf{H}_S$, after extensive analysis, we prove that two sets of four parameters can be decoupled and predicted in parallel.
+
+3. **Angular Offsets Feature:** We introduce angular offsets (A.O.) as a novel visual point feature and empirically validate their robustness as part of our representation.
+
+Planar homography, with eight degrees of freedom (DOFs), is fundamental in numerous computer vision tasks. While the positional offsets of four corners are widely adopted (especially in neural 
+network predictions), this parameterization lacks geometric interpretability and typically requires solving a linear system to compute the homography matrix. This paper presents a novel geometric parameterization of homographies, leveraging  for projective transformations. Two independent sets of four geometric parameters are decoupled: one for a similarity transformation and the other for the kernel transformation. Additionally, the geometric interpretation linearly relating the four kernel transformation parameters to angular offsets is derived. Our proposed parameterization allows for direct homography estimation through matrix multiplication, eliminating the need for solving a linear system, and achieves performance comparable to the four-corner positional offsets in deep homography estimation.
 
 ## 🔬 Formula Breakdown
 
