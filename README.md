@@ -10,7 +10,7 @@ __Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Zhijun Fan
 
 ## 💡 Motivation
 
-The Similarity-Kernel-Similarity ([SKS](http://www.cscvlab.com/research/SKS-Homography/)) decomposition is an efficient and interpretable homography computation method, which we proposed about seven years ago. In deep learing era, although the SKS decomposition can be used as a post-processing solver to calculate homography utilizing four-point positional offsets (which neural networks predict), we expect to explore a long-standing problem: how to represent homography by eight geometric parameters suitable for NN prediction?. Geometric parameterization of SKS and transferring it into deep homography estimation (DHE) task is not straightforward and need to solve three problems: (1) Which eight geometric parameters are suitable for neural network prediction? (2) How to optimally estimate parameters in a straitified sub-transformations? (3) How to endow parameters with a direct interpretation in terms of image feature? 
+The Similarity-Kernel-Similarity ([SKS](http://www.cscvlab.com/research/SKS-Homography/)) decomposition is an efficient and interpretable homography computation method, which we proposed about seven years ago. In deep learing era, although the SKS decomposition can be used as a post-processing solver to calculate homography utilizing four-point positional offsets (which neural networks predict), we expect to explore a long-standing problem: how to represent homography by eight geometric parameters suitable for NN prediction?. Geometric parameterization of SKS and transferring it into deep homography estimation (DHE) task is not straightforward and need to solve three problems: (1) Which eight geometric parameters are suitable for neural network prediction? (2) How to optimally estimate parameters in a straitified sub-transformations? (3) How to endow parameters with a direct interpretation in terms of image feature?   
 
 In this paper, we propose decoupled geometric parameterization upon SKS for DHE, which significantly promote SKS in three key folds:
 
@@ -25,11 +25,10 @@ In this paper, we propose decoupled geometric parameterization upon SKS for DHE,
 
 The original SKS method decomposes a 2D homography into three sub-transformations: 
 ```math
-\mathbf{H}=\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_1}, \\
- \mathbf{H} = \mathbf{H}_{S_2}^{-1}\mathbf{H}_K\mathbf{H}_{S_1}=\mathbf{H}_{S_2}^{-1}\mathbf{H}_{E}^{-1}\mathbf{H}^{'}_{S}\mathbf{H}_{E}\mathbf{H}_{S_1}=\mathbf{H}_{S_2}^{-1}\mathbf{H}_{E}^{-1}\mathbf{H}_{T_2}^{-1}\mathbf{H}_{G}\mathbf{H}_{T_1}\mathbf{H}_{E}\mathbf{H}_{S_1}
-
+\mathbf{H}=\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_1},
 ```
-where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}\_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. 
+where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}\_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. In SKS, $\mathbf{H}\_{K}$ is associated with the hyperbolic similarity transformation $\mathbf{H}^{'}_{S}$.
+
 
 ### Improved SKS Decomposition for Homography Parameterization
 
