@@ -13,7 +13,7 @@ __Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Zhijun Fan
 The Similarity-Kernel-Similarity ([SKS](http://www.cscvlab.com/research/SKS-Homography/)) decomposition is an efficient and interpretable homography computation method, which we proposed about seven years ago. In deep learing era, although the SKS decomposition can be used as a post-processing solver to calculate homography utilizing four-point positional offsets (which neural networks predict), we expect to explore a long-standing problem: how to represent homography by eight geometric parameters suitable for NN prediction? Geometric parameterization of SKS. 
 
 <p align="center">
-  <img src="figs/hierarchicalTrans.png" width = "500"  alt="hierarchicalTrans" align=center />
+  <img src="figs/hierarchicalTrans.png" width = "600"  alt="hierarchicalTrans" align=center />
 </p>
  
 and transferring it into deep homography estimation (DHE) task is not straightforward and need to solve three problems: (1) Which eight geometric parameters are suitable for neural network prediction? (2) How to optimally estimate parameters in a straitified sub-transformations? (3) How to endow parameters with a direct interpretation in terms of image feature?   
