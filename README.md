@@ -6,7 +6,7 @@ This repository is the official implementation of the paper:
 
 __Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Zhijun Fang, Jiachun Wang, Shen Cai*, Junchi Yan, Shuhan Shen*.
 
-[//]: # **Links:**  [[Paper]](https://arxiv.org/pdf/2402.18008) 
+[//]:  **Links:**  [[Paper]](https://arxiv.org/pdf/2402.18008) #
 
 ## 📝 Article Introduction
 
