@@ -42,23 +42,25 @@ The pipeline comparison between prior methods, the original SKS, and our propose
 ```math
 \mathbf{H}=\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_1},
 ```
-where $\mathbf{H}_{S_1}$ and $\mathbf{H}_{S_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. In the original SKS, $\mathbf{H}_{K}$ is associated with the hyperbolic similarity transformation $\mathbf{H}_{S}$.
+where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}\_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. In the original SKS, $\mathbf{H}\_{K}$ is associated with the hyperbolic similarity transformation $\mathbf{H}\_{S}^{'}$.
 
 ### Geometric Parameterization upon SKS
 
-In this paper, the homography $H$ from the source image to the target image is represented by:
+In this paper, the homography $\mathbf{H}$ from the source image to the target image is represented by:
 
-$$H = H_{S_{1}}H_{S_{2}}^{-1}H_{K}H_{S_{2}} = H_{T}^{-1}H_{S}H_{T}H_{S_{2}}^{-1}H_{K}H_{S_{2}},$$
-where the similarity transformation $H_{S_{2}}$ and the translation $H_{T}$ are known .......; The unknown similarity transformation $H_{S}$ is expressed by 
-$$
-H_{S} =\begin{bmatrix} 
+```math
+\mathbf{H}=\mathbf{H}_{S_1}*\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_2} = \mathbf{H}_{T}^{-1}*\mathbf{H}_{S}*\mathbf{H}_{T}*\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_2},
+```
+where the similarity transformation $\mathbf{H}\_{S\_2}$ and the translation $\mathbf{H}\_{T}$ are known; The unknown similarity transformation $\mathbf{H}\_{S}$ is expressed by 
+```math
+\mathbf{H}_{S} =\begin{bmatrix} 
 \Delta a_{S}+1 & -b_{S} & u_{S} \\
 b_{S} & \Delta a_{S}+1 & v_{S} \\
 0 & 0 & 1\\
 \end{bmatrix},
-$$
+```
 
-and the unknown kernel transformation $H_{K}$ is expressed by Eq. (12) in the paper:
+and the unknown kernel transformation $\mathbf{H}\_{K}$ is expressed by Eq. (12) in the paper:
 
 $$H_{K} = \begin{bmatrix} 
 \Delta a_{K}+1 & u_{K} & b_{K} \\ 
@@ -66,7 +68,7 @@ $$H_{K} = \begin{bmatrix}
 b_{K} & v_{K} & \Delta a_{K}+1\\ 
 \end{bmatrix}.$$
 
-The above equations introduce an 8-DOF geometric parameterization for homography, four in $H_{S}$ and four in $H_{K}$.
+The above equations introduce an 8-DOF geometric parameterization for homography, four in $\mathbf{H}\_{S}$ and four in $\mathbf{H}\_{K}$.
 
 ### Parameter Decoupling
 which is decoupled into two independent sets: 4-DOF
