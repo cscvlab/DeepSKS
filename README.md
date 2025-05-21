@@ -10,25 +10,30 @@ __Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Zhijun Fan
 
 ## 💡 Motivation
 
-The Similarity-Kernel-Similarity ([SKS](http://www.cscvlab.com/research/SKS-Homography/)) decomposition is an efficient and interpretable homography computation method, which we proposed about seven years ago. In deep learing era, although the SKS decomposition can be used as a post-processing solver to calculate homography utilizing four-point positional offsets, which neural networks predict, we expect to explore a long-standing problem: how to represent homography by eight geometric parameters? Geometric parameterization for homography not only aligns with similarity and affine transformations' estimation, but also align with other types of solver-free parameters' estimation (such as translation and rotation prediction in relative pose estimation and 3D point cloud estimation in stereo reconstruction.) 
+The **Similarity-Kernel-Similarity (SKS)** decomposition ([SKS](http://www.cscvlab.com/research/SKS-Homography/)) is an efficient and interpretable method for homography computation, which we originally proposed approximately seven years ago. In the deep learning era, SKS can be employed as a post-processing solver to estimate homography from four-point positional offsets predicted by neural networks. However, this work aims to address a deeper, long-standing problem: **how to represent a homography using eight geometric parameters**.
+
+Geometric parameterization of homography aligns conceptually and structurally with existing parameterizations for similarity and affine transformations (see figure below). Furthermore, it complements the broader family of solver-free estimations, such as translation and rotation in relative pose estimation or 3D point cloud prediction in stereo reconstruction.
 
 <p align="center">
   <img src="figs/hierarchicalTrans.png" width = "600"  alt="hierarchicalTrans" align=center />
 </p>
 
+While [SKS](http://www.cscvlab.com/research/SKS-Homography/) decomposes a homography into geometrically meaningful sub-transformations, its adaptation to deep homography estimation (DHE) is non-trivial. Three central challenges arise: (1) Which eight geometric parameters are suitable for neural network prediction? (2) How to optimally estimate parameters in a straitified sub-transformations? (3) How to endow parameters with a direct interpretation in terms of image feature?  
 
-Although [SKS](http://www.cscvlab.com/research/SKS-Homography/) decomposes a homography into several sub-transforamtion with geometric meaning, transferring it into deep homography estimation (DHE) task is not straightforward and need to solve three problems: (1) Which eight geometric parameters are suitable for neural network prediction? (2) How to optimally estimate parameters in a straitified sub-transformations? (3) How to endow parameters with a direct interpretation in terms of image feature?   
+To tackle these challenges, we propose a **decoupled geometric parameterization** based on the SKS decomposition, tailored for DHE. Our contributions advance SKS in the following key areas:
 
-In this paper, we propose decoupled geometric parameterization upon SKS for DHE, which significantly promote SKS in three key folds:
+1. **Geometric Parameterization Design**: While SKS allows various decompositions involving more than eight parameters, we identify a specific, compact subset of eight parameters suitable for DHE, fixing the rest to maintain stability and interpretability.
 
-1. **Geometric Parameterization Design:** While SKS has various decomposition forms involving over eight parameters, we identify a well-suited subset of eight parameters for DHE and fix the rest.
+2. **Parameter Decoupling**: Although SKS’s stratified decomposition initially implied a dependency of the kernel transformation $\mathbf{H}_K$ on the similarity transformation $\mathbf{H}_S$, our analysis reveals that two independent four-parameter groups can be learned in parallel.
 
-2. **Parameter Decoupling:** Although SKS’s stratified decomposition initially implied that the kernel transformation $\mathbf{H}_K$ seemed dependent on a similarty transformation $\mathbf{H}_S$, after extensive analysis, we prove that two sets of four parameters can be decoupled and predicted in parallel.
+3. **Angular Offsets Feature**: We introduce **angular offsets (A.O.)** as a novel point-level visual feature and empirically validate their robustness and relevance in homography prediction.
 
-3. **Angular Offsets Feature:** We introduce angular offsets (A.O.) as a novel visual feature and empirically validate their robustness as part of our representation.
+The pipeline comparison between prior methods, the original SKS, and our proposed method is illustrated in the following figure:
+
 <p align="center">
  <img src="figs/comparison.png" width = "600" alt="comparison" align=center />
 </p>
+
 ## 🔬 Formula Breakdown
 
 ### Original SKS Decomposition
