@@ -34,14 +34,15 @@ The pipeline comparison between prior methods, the original SKS, and our propose
  <img src="figs/comparison.png" width = "600" alt="comparison" align=center />
 </p>
 
+
 ## 🔬 Formula Breakdown
 
 ### Original SKS Decomposition
-SKS decomposes a 2D homography into three sub-transformations: 
+[SKS](http://www.cscvlab.com/research/SKS-Homography/) decomposes a 2D homography into three sub-transformations: 
 ```math
 \mathbf{H}=\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_1},
 ```
-where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}\_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. In the SKS work, $\mathbf{H}\_{K}$ is associated with the hyperbolic similarity transformation $\mathbf{H}_{S}$.
+where $\mathbf{H}_{S_1}$ and $\mathbf{H}_{S_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. In the original SKS, $\mathbf{H}_{K}$ is associated with the hyperbolic similarity transformation $\mathbf{H}_{S}$.
 
 ### Geometric Parameterization upon SKS
 
