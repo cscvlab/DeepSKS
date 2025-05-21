@@ -49,24 +49,26 @@ where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformatio
 In this paper, the homography $\mathbf{H}$ from the source image to the target image is represented by:
 
 ```math
-\mathbf{H}=\mathbf{H}_{S_1}*\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_2} = \mathbf{H}_{T}^{-1}*\mathbf{H}_{S}*\mathbf{H}_{T}*\mathbf{H}_{S_2}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_2},
+\mathbf{H}=\mathbf{H}_{S_1}*\mathbf{H}_{S_3}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_3} = \mathbf{H}_{T}^{-1}*\mathbf{H}_{S}*\mathbf{H}_{T}*\mathbf{H}_{S_3}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_3},
 ```
-where the similarity transformation $\mathbf{H}\_{S\_2}$ and the translation $\mathbf{H}\_{T}$ are known; The unknown similarity transformation $\mathbf{H}\_{S}$ is expressed by 
+where the similarity transformation $\mathbf{H}\_{S\_3}$ and the translation $\mathbf{H}\_{T}$ are known; The unknown similarity transformation $\mathbf{H}\_{S}$ is expressed by 
 ```math
 \mathbf{H}_{S} =\begin{bmatrix} 
 \Delta a_{S}+1 & -b_{S} & u_{S} \\
 b_{S} & \Delta a_{S}+1 & v_{S} \\
-0 & 0 & 1\\
+0 & 0 & 1
 \end{bmatrix},
 ```
 
-and the unknown kernel transformation $\mathbf{H}\_{K}$ is expressed by Eq. (12) in the paper:
+and the unknown kernel transformation $\mathbf{H}\_{K}$ is expressed by
 
-$$H_{K} = \begin{bmatrix} 
+```math
+\mathbf{H}_{K} = \begin{bmatrix} 
 \Delta a_{K}+1 & u_{K} & b_{K} \\ 
 0 & 1 & 0 \\ 
-b_{K} & v_{K} & \Delta a_{K}+1\\ 
-\end{bmatrix}.$$
+b_{K} & v_{K} & \Delta a_{K}+1
+\end{bmatrix}.
+```
 
 The above equations introduce an 8-DOF geometric parameterization for homography, four in $\mathbf{H}\_{S}$ and four in $\mathbf{H}\_{K}$.
 
