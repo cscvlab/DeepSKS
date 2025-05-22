@@ -80,18 +80,11 @@ The proposed eight geometric parameters can be **decoupled into two independent 
 
 $$
 \begin{aligned}
-\Delta x_{M} &= \quad r \cdot \Delta a_{S} + \quad r \cdot b_{S} - u_{S}, \\
-\Delta y_{M} &= -r \cdot \Delta a_{S} + \quad r \cdot b_{S} - v_{S},
+\Delta x_{M} &= \quad r \cdot \Delta a_{S} &+ \quad r \cdot b_{S} - u_{S}, \\
+\Delta y_{M} &= -r \cdot \Delta a_{S} &+ \quad r \cdot b_{S} - v_{S}, \\
+\Delta x_{N} &= -r \cdot \Delta a_{S} &- r \cdot b_{S} - u_{S}, \\
+\Delta y_{N} &= \quad r \cdot \Delta a_{S} &- r \cdot b_{S} - v_{S}.
 \end{aligned}
-$$
-$$
-\Delta y_{M} = -r \cdot \Delta a_{S} + \quad r \cdot b_{S} - v_{S},
-$$
-$$
-\Delta x_{N} = -r \cdot \Delta a_{S} - r \cdot b_{S} - u_{S},
-$$
-$$
-\Delta y_{N} = \quad r \cdot \Delta a_{S} - r \cdot b_{S} - v_{S}.
 $$
 
 * The four parameters in $\mathbf{H}\_{K}$ (the kernel transformation) are linearly related to the **angular offsets** of the same two vertices. These are expressed via differences in cotangent values from a canonical $45^\circ$ reference angle:
