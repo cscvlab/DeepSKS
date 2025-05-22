@@ -28,7 +28,7 @@ To tackle these challenges, we propose a **decoupled geometric parameterization*
 
 3. **Angular Offsets Feature**: We introduce **angular offsets (A.O.)** as a novel point-level visual feature and empirically validate their robustness and relevance in homography estimation.
 
-The pipeline comparison between prior methods, the original SKS, and our proposed method is illustrated in the following figure:
+The pipeline comparison between SOTA DHE methods, the original SKS, and our proposed method is illustrated in the following figure:
 
 <p align="center">
  <img src="figs/comparison.png" width = "600" alt="comparison" align=center />
