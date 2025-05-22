@@ -4,7 +4,7 @@ This repository is the official implementation of the paper:
 
 **Decoupled Geometric Parameterization and its Application in Deep Homography Estimation**.
 
-__Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Zhijun Fang, Jiachun Wang, Shen Cai, Junchi Yan, Shuhan Shen.
+__Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Zhijun Fang, Jiachun Wang, Shuting Wang, Shen Cai, Junchi Yan, Shuhan Shen.
 
 <!-- **Links:**  [[Paper]](https://arxiv.org/pdf/2402.18008) -->
 
