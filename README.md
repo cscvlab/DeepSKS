@@ -91,10 +91,10 @@ $$
 
 $$
 \begin{aligned}
-\Delta \cot \theta &= \cot \theta - \cot 45^\circ &= \Delta a_{K} + b_{K} + u_{K} + v_{K}, \\
-\Delta \cot \alpha &= \cot \alpha - \cot 45^\circ &= \Delta a_{K} - b_{K} - u_{K} + v_{K}, \\
-\Delta \cot \beta &= \cot \beta - \cot 45^\circ &= \Delta a_{K} + b_{K} - u_{K} - v_{K}, \\
-\Delta \cot \gamma &= \cot \gamma - \cot 45^\circ &= \Delta a_{K} - b_{K} + u_{K} - v_{K}. 
+\Delta \cot \theta &= \quad\cot \theta - \cot 45^\circ &= \quad\Delta a_{K} + b_{K} + u_{K} + v_{K}, \\
+\Delta \cot \alpha &= \quad\cot \alpha - \cot 45^\circ &= \quad\Delta a_{K} - b_{K} - u_{K} + v_{K}, \\
+\Delta \cot \beta &= \quad\cot \beta - \cot 45^\circ &= \quad\Delta a_{K} + b_{K} - u_{K} - v_{K}, \\
+\Delta \cot \gamma &= \quad\cot \gamma - \cot 45^\circ &= \quad\Delta a_{K} - b_{K} + u_{K} - v_{K}. 
 \end{aligned}
 $$
 
