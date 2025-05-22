@@ -44,12 +44,12 @@ The pipeline comparison between SOTA DHE methods, the original SKS, and our prop
 ```
 where $\mathbf{H}\_{S\_1}$ and $\mathbf{H}\_{S\_2}$ are similarity transformations induced by two arbitrary pairs of corresponding points on source plane and target plane, respectively; $\mathbf{H}\_{K}$ is the 4-DOF kernel transfromation we defined, which generates projective distortion between two similarity-normalized planes. In the original SKS, $\mathbf{H}\_{K}$ is associated with the hyperbolic similarity transformation $\mathbf{H}\_{S}^{'}$.
 
-### Geometric Parameterization upon SKS
+### 8-DOF Geometric Parameterization upon SKS
 
 In this paper, the homography $\mathbf{H}$ from the source image to the target image is represented by:
 
 ```math
-\mathbf{H}=\mathbf{H}_{S_1}*\mathbf{H}_{S_3}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_3} = \mathbf{H}_{T}^{-1}*\mathbf{H}_{S}*\mathbf{H}_{T}*\mathbf{H}_{S_3}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_3},
+\mathbf{H} = \mathbf{H}_{T}^{-1}*\mathbf{H}_{S}*\mathbf{H}_{T}*\mathbf{H}_{S_3}^{-1}*\mathbf{H}_{K}*\mathbf{H}_{S_3},
 ```
 where the similarity transformation $\mathbf{H}\_{S\_3}$ and the translation $\mathbf{H}\_{T}$ are known; The unknown similarity transformation $\mathbf{H}\_{S}$ is expressed by 
 ```math
@@ -73,21 +73,9 @@ b_{K} & v_{K} & \Delta a_{K}+1
 The above equations introduce an 8-DOF geometric parameterization for homography, four in $\mathbf{H}\_{S}$ and four in $\mathbf{H}\_{K}$.
 
 ### Parameter Decoupling
-which is decoupled into two independent sets: 4-DOF
-```math
-\Delta cot \theta = cot~\theta-cot~45^{\circ}=\Delta a_{K}+b_{K}+u_{K}+v_{K},
-```
-```math
-\Delta cot \alpha = cot~\alpha-cot~45^{\circ}=\Delta a_{K}-b_{K}-u_{K}+v_{K},
-```
-```math
-\Delta cot \beta = cot~\beta-cot~45^{\circ}=\Delta a_{K}+b_{K}-u_{K}-v_{K},
-```
-```math  
-\Delta cot \gamma = cot~\gamma-cot~45^{\circ}=\Delta a_{K}-b_{K}+u_{K}-v_{K}.
-```
 
-  
+The above 8 parameters can be decoupled into two independent sets of four parameters, each of which corresponds to two points' 2-DOF features. Specifically, four parameters in $\mathbf{H}\_{S}$ is linearly related to two vertices' positional offsets as follows:
+
 ```math
 \Delta x_{M} = \qquad r*\Delta a_{S}+ \qquad r*b_{S}-u_{S},
 ```
@@ -100,6 +88,27 @@ which is decoupled into two independent sets: 4-DOF
 ```math
 \Delta y_{N} = \qquad r*\Delta a_{S}+(-r)*b_{S}-v_{S}.
 ```
+
+Four parameters in $\mathbf{H}\_{K}$ is linearly related to the same two vertices' angular offsets as follows:
+
+```math
+\Delta cot \theta = cot~\theta-cot~45^{\circ} = \Delta a_{K}+b_{K}+u_{K}+v_{K},
+```
+```math
+\Delta cot \alpha = cot~\alpha-cot~45^{\circ} = \Delta a_{K}-b_{K}-u_{K}+v_{K},
+```
+```math
+\Delta cot \beta = cot~\beta-cot~45^{\circ} = \Delta a_{K}+b_{K}-u_{K}-v_{K},
+```
+```math  
+\Delta cot \gamma = cot~\gamma-cot~45^{\circ} = \Delta a_{K}-b_{K}+u_{K}-v_{K}.
+```
+
+<p align="center">
+ <img src="figs/paraDecoupling.png" width = "600" alt="comparison" align=center />
+</p>
+  
+
 
 ## 📜 Article Summary
 
