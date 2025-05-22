@@ -117,7 +117,7 @@ $$
 The above formulation demonstrates that **positional and angular features can be learned independently from two images**, as shown below, enabling parallel prediction and facilitating more interpretable homography estimation. 
 
 <p align="center">
- <img src="figs/paraDecoupling.png" width = "500" alt="comparison" align=center />
+ <img src="figs/paraDecoupling.png" width = "400" alt="comparison" align=center />
 </p>
 
 ## 📜 Application to Deep Homography Estimation
