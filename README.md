@@ -114,49 +114,25 @@ $$
 
 ---
 
-The above formulation demonstrates that **positional and angular features can be learned independently**, as shown below, enabling parallel prediction and facilitating more interpretable homography estimation. 
-
-
-The above 8 parameters can be decoupled into two independent sets of four parameters, each of which corresponds to two points' 2-DOF features. Specifically, four parameters in $\mathbf{H}\_{S}$ is linearly related to two vertices' positional offsets as follows:
-
-```math
-\Delta x_{M} = \qquad r*\Delta a_{S}+ \qquad r*b_{S}-u_{S},
-```
-```math
-\Delta y_{M} = (-r)*\Delta a_{S}+ \qquad r*b_{S}-v_{S},
-```
-```math
-\Delta x_{N} = (-r)*\Delta a_{S}+(-r)*b_{S}-u_{S},
-```
-```math
-\Delta y_{N} = \qquad r*\Delta a_{S}+(-r)*b_{S}-v_{S}.
-```
-
-Four parameters in $\mathbf{H}\_{K}$ is linearly related to the same two vertices' angular offsets as follows:
-
-```math
-\Delta cot \theta = cot~\theta-cot~45^{\circ} = \Delta a_{K}+b_{K}+u_{K}+v_{K},
-```
-```math
-\Delta cot \alpha = cot~\alpha-cot~45^{\circ} = \Delta a_{K}-b_{K}-u_{K}+v_{K},
-```
-```math
-\Delta cot \beta = cot~\beta-cot~45^{\circ} = \Delta a_{K}+b_{K}-u_{K}-v_{K},
-```
-```math  
-\Delta cot \gamma = cot~\gamma-cot~45^{\circ} = \Delta a_{K}-b_{K}+u_{K}-v_{K}.
-```
+The above formulation demonstrates that **positional and angular features can be learned independently from two images**, as shown below, enabling parallel prediction and facilitating more interpretable homography estimation. 
 
 <p align="center">
  <img src="figs/paraDecoupling.png" width = "500" alt="comparison" align=center />
 </p>
-  
 
+## 📜 Application to Deep Homography Estimation
 
-## 📜 Article Summary
+### Network Architecture 
+This paper does not change any architecture of neural networks. The integration of our geometric parameterization into existing DHE networks is seamless, achieved simply by replacing the eight outputs. If required in iterative DHE methods, the procedure of homography computation will shift from solving a linear system based on four-corner positional offsets to performing matrix multiplication.
 
+### Loss Function
+The loss function for the proposed eight geometric parameters is defined by their $L_1$ loss, under supervised learning.
 
-Planar homography, with eight degrees of freedom (DOFs), is fundamental in numerous computer vision tasks. While the positional offsets of four corners are widely adopted (especially in neural 
-network predictions), this parameterization lacks geometric interpretability and typically requires solving a linear system to compute the homography matrix. This paper presents a novel geometric parameterization of homographies, leveraging  for projective transformations. Two independent sets of four geometric parameters are decoupled: one for a similarity transformation and the other for the kernel transformation. Additionally, the geometric interpretation linearly relating the four kernel transformation parameters to angular offsets is derived. Our proposed parameterization allows for direct homography estimation through matrix multiplication, eliminating the need for solving a linear system, and achieves performance comparable to the four-corner positional offsets in deep homography estimation.
+### Unified Framework for Predicting 2D transformations
+The proposed geometric parameterization supports a unified solution for deep 2D transformation estimation. Specifically, by analyzing the four angles \{$\theta$, $\alpha$, $\beta$, $\gamma$\}, one can directly identify the parallelogram in affine distortion, as $\theta$$=$$\gamma$ and $\alpha$$=$$\beta$. Under a 4-DOF similarity transformation, the four angles \{$\theta$, $\alpha$, $\beta$, $\gamma$\} will remain unchanged at $45^\circ$. Utilizing 8-DOF geometric parameters, identifing the degenerate affine and similarity transformations is natural.
 
-This paper presents a novel geometric parameterization of homography that is suitable for estimation through neural networks, based on the SKS decomposition. By introducing two independent sets of four geometric parameters, each with corresponding projective distortion interpretations, the parameterization aligns with and unifies the estimation for 2D similarity and affine transformations. Furthermore, the proposed method eliminates the need for solving linear systems, as required by traditional four-corner positional offsets parameterization, and achieves competitive performance across multiple datasets and neural network architectures. Similar to pose estimation and other geometric vision tasks, this approach demonstrates the value of geometric parameterization, as all deep learning methods predicting positional offsets are not end-to-end and require an algebraic solver to compute solutions as a post-processing step. Moreover, to the best of the authors' knowledge, this is the first work to introduce angular offsets in vision tasks.
+### Experimental Results
+We conduct tests across multiple homography estimation networks on three commonly used datasets. In short:
+* Slight improvement is achieved in positional offset metrics;
+* Significant reduction is achieved in angular offset error.
+
