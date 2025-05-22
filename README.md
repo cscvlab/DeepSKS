@@ -123,16 +123,22 @@ The above formulation demonstrates that **positional and angular features can be
 ## 📜 Application to Deep Homography Estimation
 
 ### Network Architecture 
-This paper does not change any architecture of neural networks. The integration of our geometric parameterization into existing DHE networks is seamless, achieved simply by replacing the eight outputs. If required in iterative DHE methods, the procedure of homography computation will shift from solving a linear system based on four-corner positional offsets to performing matrix multiplication.
+Our method is designed to be **architecture-agnostic** and integrates seamlessly into existing DHE methods. No changes are made to the backbone network structure. Instead, the proposed geometric parameterization replaces the conventional eight positional offsets. For iterative DHE models, this substitution shifts the homography computation step from solving a linear system (based on four-point offsets) to a direct matrix multiplication using the predicted geometric parameters.
 
 ### Loss Function
-The loss function for the proposed eight geometric parameters is defined by their $L_1$ loss, under supervised learning.
+Similar to previous methods, we adopt a straightforward supervised learning objective, applying an **$L_1$ loss** to the predicted eight geometric parameters.
 
-### Unified Framework for Predicting 2D transformations
-The proposed geometric parameterization supports a unified solution for deep 2D transformation estimation. Specifically, by analyzing the four angles \{$\theta$, $\alpha$, $\beta$, $\gamma$\}, one can directly identify the parallelogram in affine distortion, as $\theta$$=$$\gamma$ and $\alpha$$=$$\beta$. Under a 4-DOF similarity transformation, the four angles \{$\theta$, $\alpha$, $\beta$, $\gamma$\} will remain unchanged at $45^\circ$. Utilizing 8-DOF geometric parameters, identifing the degenerate affine and similarity transformations is natural.
+### Unified Framework for 2D transformation Estimation
+The proposed geometric parameterization naturally extends to a **unified framework for estimating various 2D transformations**. In particular:
+
+* For **affine transformations**, the structure of the four angular parameters $\{\theta, \alpha, \beta, \gamma\}$ allows straightforward identification of affine distortions. Specifically, a parallelogram pattern is indicated when $\theta = \gamma$ and $\alpha = \beta$.
+* Under a **4-DOF similarity transformation**, the same four angles remain invariant at $45^\circ$, providing a clear signature for similarity transformations.
+
+This ability to identify **degenerate cases** (e.g., affine or similarity) from within the 8-DOF homography parameter enhances interpretability and supports broader applications.
 
 ### Experimental Results
-We conduct tests across multiple homography estimation networks on three commonly used datasets. In short:
-* Slight improvement is achieved in positional offset metrics;
-* Significant reduction is achieved in angular offset error.
+We evaluate the method across multiple DHE networks on three commonly used datasets. Our findings include:
+
+* **Slight improvement** in positional offset metrics, reflecting modest gains in point alignment accuracy;
+* **Significant reduction** in **angular offset errors**, highlighting the robustness and precision of our proposed representation in capturing orientation-related distortions.
 
