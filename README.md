@@ -76,7 +76,7 @@ The above equations introduce an 8-DOF geometric parameterization for homography
 
 The proposed eight geometric parameters can be **decoupled into two independent sets of four parameters**, each corresponding to the 2-DOF features of two distinct point vertices. Specifically:
 
-* The four parameters in $\mathbf{H}\_{S}$ (the similarity transformation) are linearly related to the **positional offsets** of two vertices $M$ and $N$. Given the half length of the image patch square’s side, the relationships are expressed by:
+* The four parameters in $\mathbf{H}\_{S}$ (the similarity transformation) are linearly related to the **positional offsets** of two vertices $M$ and $N$. The half-length of the image patch square's side is denoted by \(r\), and the relationships are expressed as follows:
 
 $$
 \begin{aligned}
@@ -90,16 +90,12 @@ $$
 * The four parameters in $\mathbf{H}\_{K}$ (the kernel transformation) are linearly related to the **angular offsets** of the same two vertices. These are expressed via differences in cotangent values from a canonical $45^\circ$ reference angle:
 
 $$
-\Delta \cot \theta = \cot \theta - \cot 45^\circ = \Delta a_{K} + b_{K} + u_{K} + v_{K},
-$$
-$$
-\Delta \cot \alpha = \cot \alpha - \cot 45^\circ = \Delta a_{K} - b_{K} - u_{K} + v_{K},
-$$
-$$
-\Delta \cot \beta = \cot \beta - \cot 45^\circ = \Delta a_{K} + b_{K} - u_{K} - v_{K},
-$$
-$$
-\Delta \cot \gamma = \cot \gamma - \cot 45^\circ = \Delta a_{K} - b_{K} + u_{K} - v_{K}.
+\begin{aligned}
+\Delta \cot \theta &= \cot \theta - \cot 45^\circ &= \Delta a_{K} + b_{K} + u_{K} + v_{K}, \\
+\Delta \cot \alpha &= \cot \alpha - \cot 45^\circ &= \Delta a_{K} - b_{K} - u_{K} + v_{K}, \\
+\Delta \cot \beta &= \cot \beta - \cot 45^\circ &= \Delta a_{K} + b_{K} - u_{K} - v_{K}, \\
+\Delta \cot \gamma &= \cot \gamma - \cot 45^\circ &= \Delta a_{K} - b_{K} + u_{K} - v_{K}. 
+\end{aligned}
 $$
 
 ---
