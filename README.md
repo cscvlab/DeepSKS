@@ -74,6 +74,49 @@ The above equations introduce an 8-DOF geometric parameterization for homography
 
 ### Parameter Decoupling
 
+The proposed eight geometric parameters can be **decoupled into two independent sets of four parameters**, each corresponding to the 2-DOF features of two distinct point vertices. Specifically:
+
+* The four parameters in $\mathbf{H}\_{S}$ (the similarity transformation) are linearly related to the **positional offsets** of two vertices. The relationships are given by:
+
+$$
+\Delta x_{M} = \quad r \cdot \Delta a_{S} + \quad r \cdot b_{S} - u_{S},
+$$
+
+$$
+\Delta y_{M} = -r \cdot \Delta a_{S} + \quad r \cdot b_{S} - v_{S},
+$$
+
+$$
+\Delta x_{N} = -r \cdot \Delta a_{S} - r \cdot b_{S} - u_{S},
+$$
+
+$$
+\Delta y_{N} = \quad r \cdot \Delta a_{S} - r \cdot b_{S} - v_{S}.
+$$
+
+* The four parameters in $\mathbf{H}\_{K}$ (the kernel transformation) are linearly related to the **angular offsets** of the same two vertices. These are expressed via differences in cotangent values from a canonical $45^\circ$ reference angle:
+
+$$
+\Delta \cot \theta = \cot \theta - \cot 45^\circ = \Delta a_{K} + b_{K} + u_{K} + v_{K},
+$$
+
+$$
+\Delta \cot \alpha = \cot \alpha - \cot 45^\circ = \Delta a_{K} - b_{K} - u_{K} + v_{K},
+$$
+
+$$
+\Delta \cot \beta = \cot \beta - \cot 45^\circ = \Delta a_{K} + b_{K} - u_{K} - v_{K},
+$$
+
+$$
+\Delta \cot \gamma = \cot \gamma - \cot 45^\circ = \Delta a_{K} - b_{K} + u_{K} - v_{K}.
+$$
+
+---
+
+The above formulation demonstrates that **positional and angular features can be learned independently**, as shown below, enabling parallel prediction and facilitating more interpretable homography estimation. 
+
+
 The above 8 parameters can be decoupled into two independent sets of four parameters, each of which corresponds to two points' 2-DOF features. Specifically, four parameters in $\mathbf{H}\_{S}$ is linearly related to two vertices' positional offsets as follows:
 
 ```math
@@ -105,7 +148,7 @@ Four parameters in $\mathbf{H}\_{K}$ is linearly related to the same two vertice
 ```
 
 <p align="center">
- <img src="figs/paraDecoupling.png" width = "600" alt="comparison" align=center />
+ <img src="figs/paraDecoupling.png" width = "500" alt="comparison" align=center />
 </p>
   
 
