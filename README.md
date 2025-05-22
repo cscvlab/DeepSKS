@@ -81,15 +81,12 @@ The proposed eight geometric parameters can be **decoupled into two independent 
 $$
 \Delta x_{M} = \quad r \cdot \Delta a_{S} + \quad r \cdot b_{S} - u_{S},
 $$
-
 $$
 \Delta y_{M} = -r \cdot \Delta a_{S} + \quad r \cdot b_{S} - v_{S},
 $$
-
 $$
 \Delta x_{N} = -r \cdot \Delta a_{S} - r \cdot b_{S} - u_{S},
 $$
-
 $$
 \Delta y_{N} = \quad r \cdot \Delta a_{S} - r \cdot b_{S} - v_{S}.
 $$
@@ -99,15 +96,12 @@ $$
 $$
 \Delta \cot \theta = \cot \theta - \cot 45^\circ = \Delta a_{K} + b_{K} + u_{K} + v_{K},
 $$
-
 $$
 \Delta \cot \alpha = \cot \alpha - \cot 45^\circ = \Delta a_{K} - b_{K} - u_{K} + v_{K},
 $$
-
 $$
 \Delta \cot \beta = \cot \beta - \cot 45^\circ = \Delta a_{K} + b_{K} - u_{K} - v_{K},
 $$
-
 $$
 \Delta \cot \gamma = \cot \gamma - \cot 45^\circ = \Delta a_{K} - b_{K} + u_{K} - v_{K}.
 $$
