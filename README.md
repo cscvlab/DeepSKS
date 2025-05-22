@@ -74,6 +74,32 @@ The above equations introduce an 8-DOF geometric parameterization for homography
 
 ### Parameter Decoupling
 which is decoupled into two independent sets: 4-DOF
+```math
+\Delta cot \theta = cot~\theta-cot~45^{\circ}=\Delta a_{K}+b_{K}+u_{K}+v_{K},
+```
+```math
+\Delta cot \alpha = cot~\alpha-cot~45^{\circ}=\Delta a_{K}-b_{K}-u_{K}+v_{K},
+```
+```math
+\Delta cot \beta = cot~\beta-cot~45^{\circ}=\Delta a_{K}+b_{K}-u_{K}-v_{K},
+```
+```math  
+\Delta cot \gamma = cot~\gamma-cot~45^{\circ}=\Delta a_{K}-b_{K}+u_{K}-v_{K}.
+```
+
+  
+```math
+\Delta x_{M} = \qquad r*\Delta a_{S}+ \qquad r*b_{S}-u_{S},
+```
+```math
+\Delta y_{M} = (-r)*\Delta a_{S}+ \qquad r*b_{S}-v_{S},
+```
+```math
+\Delta x_{N} = (-r)*\Delta a_{S}+(-r)*b_{S}-u_{S},
+```
+```math
+\Delta y_{N} = \qquad r*\Delta a_{S}+(-r)*b_{S}-v_{S}.
+```
 
 ## 📜 Article Summary
 
