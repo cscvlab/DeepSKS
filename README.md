@@ -26,7 +26,7 @@ To tackle these challenges, we propose a **decoupled geometric parameterization*
 
 2. **Parameter Decoupling**: Although SKS’s stratified decomposition initially implied a dependency of the kernel transformation $\mathbf{H}_K$ on the similarity transformation $\mathbf{H}_S$, our analysis reveals that two independent four-parameter groups can be learned in parallel.
 
-3. **Angular Offsets Feature**: We introduce **angular offsets (A.O.)** as a novel point-level visual feature and empirically validate their robustness and relevance in homography estimation.
+3. **Angular Offsets Feature**: We introduce **angular offsets** as a novel point-level visual feature and empirically validate their robustness and relevance in homography estimation.
 
 The pipeline comparison between SOTA DHE methods, the original SKS, and our proposed method is illustrated in the following figure:
 
