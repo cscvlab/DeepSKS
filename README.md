@@ -109,7 +109,7 @@ The above formulation demonstrates that **positional and angular features can be
 ## 📜 Application to Deep Homography Estimation
 
 ### Network Architecture 
-Our method is designed to be **architecture-agnostic** and integrates seamlessly into existing DHE methods. No changes are made to the backbone network structure. Instead, the proposed geometric parameterization replaces the conventional eight positional offsets. For iterative DHE models, this substitution shifts the homography computation step from solving a linear system (based on four-point offsets) to a direct matrix multiplication using the predicted geometric parameters.
+Our method is designed to be **architecture-agnostic** and integrates seamlessly into existing DHE methods. No changes are made to the network architecture. For the network's outputs, the proposed eight geometric parameters replace the conventional eight positional offsets. For iterative DHE models, this substitution shifts the homography computation step from solving a linear system (based on four-point offsets) to a direct matrix multiplication using the predicted geometric parameters.
 
 ### Loss Function
 Similar to previous methods, we adopt a straightforward supervised learning objective, applying an **$L_1$ loss** to the predicted eight geometric parameters.
