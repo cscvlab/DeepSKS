@@ -1,0 +1,1 @@
+{"location": [{"top_left_u": 26, "top_left_v": 58}, {"top_right_u": 162, "top_right_v": 14}, {"bottom_left_u": 59, "bottom_left_v": 159}, {"bottom_right_u": 142, "bottom_right_v": 155}]}
