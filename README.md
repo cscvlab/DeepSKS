@@ -8,6 +8,8 @@ __Authors:__ Yao Huang, Siyuan Cao, Yaqing Ding, Hao Yin, Shibin Xie, Shuting Wa
 
 **Links:**  [[ArXiv paper]](https://arxiv.org/pdf/2505.16599) 
 
+<br>
+
 ## 💡 Motivation
 
 The **Similarity-Kernel-Similarity ([SKS](http://www.cscvlab.com/research/SKS-Homography/))** decomposition is an efficient and interpretable method for homography computation, which we originally proposed approximately seven years ago. In the deep learning era, SKS can be employed as a post-processing solver to estimate homography from four-point positional offsets predicted by neural networks. However, this work aims to address a deeper, long-standing problem: **how to represent a homography using eight geometric parameters**.
@@ -34,6 +36,7 @@ The pipeline comparison between SOTA DHE methods, the original SKS, and our prop
  <img src="figs/comparison.png" width = "600" alt="comparison" align=center />
 </p>
 
+<br>
 
 ## 🔬 Formula Breakdown
 
@@ -105,6 +108,8 @@ The above formulation demonstrates that **positional and angular features can be
 <p align="center">
  <img src="figs/paraDecoupling.png" width = "400" alt="comparison" align=center />
 </p>
+
+<br>
 
 ## 📜 Application to Deep Homography Estimation
 
