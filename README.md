@@ -77,7 +77,7 @@ The above equations introduce an 8-DOF geometric parameterization for homography
 
 The proposed eight geometric parameters can be **decoupled into two independent sets of four parameters**, each corresponding to the 2-DOF features of two distinct point vertices. Specifically:
 
-* The four parameters in $\mathbf{H}\_{S}$ (the similarity transformation) are linearly related to the **positional offsets** of two vertices $M$ and $N$. The half-length of the image patch square's side is denoted by \(r\), and the relationships are expressed as follows:
+* The four parameters in $\mathbf{H}\_{S}$ (the similarity transformation) are linearly related to the **positional offsets** of two vertices $M$ and $N$. The half-length of the image patch square's side is denoted by $r$, and the relationships are expressed as follows:
 
 $$
 \begin{aligned}
